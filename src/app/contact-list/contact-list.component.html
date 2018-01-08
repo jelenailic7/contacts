@@ -1,6 +1,6 @@
 <ul *ngFor = "let contact of contacts">
-  <li *ngIf="contact.firstName =='Martin' && contact.lastName =='Hessa'">
+  <li>
     {{ contact.firstName }} {{ contact.lastName }} <br> {{ contact.email }}</li>
-
+    <button (click) = "removeContact(contact)" class="btn btn-danger">Remove contact</button>
 
 </ul>
