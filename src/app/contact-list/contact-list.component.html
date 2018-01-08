@@ -1,5 +1,6 @@
-<p>
-  contact-list works!
-  <br>
-  {{ contact }}
-</p>
+<ul *ngFor = "let contact of contacts">
+  <li *ngIf="contact.firstName =='Martin'">
+    {{ contact.firstName }} {{ contact.lastName }}</li>
+
+
+</ul>
