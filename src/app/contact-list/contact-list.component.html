@@ -1,6 +1,22 @@
-<ul  *ngFor = "let contact of contacts">
-  <li>
-    {{ contact.firstName }} {{ contact.lastName }} <br> {{ contact.email }}</li>
-    <button (click) = "removeContact(contact)" class="btn btn-danger">Remove contact</button>
-
-</ul>
+ 
+<table class="table">
+  <thead>
+    <tr>
+      <th>Firstname</th>
+      <th>Lastname</th>
+      <th>Email</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor = "let contact of contacts">
+      <a>
+      <td>{{ contact.firstName }}</td>
+      </a>
+      <td>{{ contact.lastName }}</td>
+      <td>{{ contact.email }}</td>   
+      <td><button (click) = "removeContact(contact)" class="btn btn-danger">Remove contact</button>
+      </td>   
+    </tr>
+    </tbody>
+</table>
