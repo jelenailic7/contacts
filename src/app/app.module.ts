@@ -1,28 +1,39 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { RouterModule, Routes } from '@angular/router';
 
 
 import { AppComponent } from './app.component';
-import { ContactListComponent } from './contact-list/contact-list.component';
-import { LayoutComponent } from './layout/layout.component';
-import { NavBarComponent } from './nav-bar/nav-bar.component';
-import { NavbarComponent } from './navbar/navbar.component';
+import { ContactListComponent } from './components/contact-list/contact-list.component';
+import { LayoutComponent } from './components/layout/layout.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { MessagesComponent } from './components/messages/messages.component';
+import { FilterPipe } from './pipes/filter.pipe';
+import { ContactsService } from './services/contacts.service';
 
+const appRoutes: Routes = [
+  {path:'contacts',component: ContactListComponent },
+  {path:'contacts/:id',component: ContactListComponent },
+  {path:'messages',component: MessagesComponent },
+
+];
 
 @NgModule({
   declarations: [
     AppComponent,
     ContactListComponent,
     LayoutComponent,
-    NavBarComponent,
-    NavbarComponent
+    NavbarComponent,
+    MessagesComponent,
+    FilterPipe,
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [ContactsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

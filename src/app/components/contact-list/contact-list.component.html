@@ -1,4 +1,6 @@
- 
+Search term:
+<input type="text" name="" [(ngModel)]="searchTerm">
+
 <table class="table">
   <thead>
     <tr>
@@ -9,9 +11,9 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor = "let contact of contacts">
+    <tr *ngFor = "let contact of contacts | filter:searchTerm">
       <a>
-      <td>{{ contact.firstName }}</td>
+      <td>{{ contact.firstName |uppercase }}</td>
       </a>
       <td>{{ contact.lastName }}</td>
       <td>{{ contact.email }}</td>   
@@ -20,5 +22,3 @@
     </tr>
     </tbody>
 </table>
-<input type="text" name="" [(ngModel)]="testModel">
-<div>Input value: {{ testModel }}</div>
