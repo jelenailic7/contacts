@@ -12,7 +12,9 @@ export class ContactListComponent implements OnInit {
   contacts;
   searchTerm = '';
   constructor(private contactsService: ContactsService) { 
-    this.contacts =  this.contactsService.getContacts(); 
+  this.contactsService.getContacts().subscribe(contacts => {
+    this.contacts = contacts;
+  });
 } 
 
 removeContact(contact) {
